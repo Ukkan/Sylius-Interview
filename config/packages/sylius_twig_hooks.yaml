@@ -1,0 +1,6 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.order.show.content':
+            note:
+                template: "admin/order/note.html.twig"
+                priority: 600
