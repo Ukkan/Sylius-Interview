@@ -1,6 +1,28 @@
 sylius_twig_hooks:
     hooks:
-        'sylius_admin.order.show.content':
+        'sylius_admin.order.show.content.sections#left':
             note:
                 template: "admin/order/note.html.twig"
-                priority: 600
+                priority: 50
+        'sylius_admin.order.show.content.sections.note':
+            header:
+                template: 'admin/order/show/content/sections/note/header.html.twig'
+                priority: 100
+            items:
+                template: 'admin/order/show/content/sections/note/items.html.twig'
+                priority: 0
+        'sylius_admin.order.show.content.sections.note.header':
+            title:
+                template: 'admin/order/show/content/sections/note/header/title.html.twig'
+                priority: 100
+
+        'sylius_admin.order.show.content.sections.note.item':
+            state:
+                template: 'admin/order/show/content/sections/note/item/state.html.twig'
+                priority: 200
+            general:
+                template: 'admin/order/show/content/sections/note/item/general.html.twig'
+                priority: 100
+            actions:
+                template: 'admin/order/show/content/sections/note/item/actions.html.twig'
+                priority: 0

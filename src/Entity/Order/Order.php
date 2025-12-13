@@ -20,4 +20,17 @@ class Order extends BaseOrder implements OrderInterface
     use QRCodeOrderTrait;
     use RecurringOrderTrait;
     use AbandonedEmailOrderTrait;
+
+    #[ORM\Column(type: 'string', length: 500, nullable: true)]
+    private ?string $note = null;
+
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    public function setNote(?string $note): void
+    {
+        $this->note = $note;
+    }
 }

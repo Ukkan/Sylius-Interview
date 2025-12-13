@@ -1,0 +1,26 @@
+<div class="py-3">
+    <div class="card-body">
+
+        {% set order = hookable_metadata.context.resource %}
+
+        <div class="ui segment">
+            <form
+                class="ui form"
+                method="post"
+                action="{{ path('app_admin_order_note_update', { id: order.id }) }}"
+            >
+                <textarea
+                    name="order_note[note]"
+                    class="form-control mb-3"
+                    rows="3"
+                >{{ order.note }}</textarea>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token(order.id) }}"/>
+
+                <button class="ui primary button btn" type="submit">
+                    Save note
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
